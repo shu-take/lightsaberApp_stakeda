@@ -32,7 +32,7 @@ export default function MainScreen(props: Props) {
   const goto = async () => {
     const soundObject = new Audio.Sound();
     try {
-      await soundObject.loadAsync(require('./assets/sounds/light_saber1.mp3'));
+      // await soundObject.loadAsync(require('./assets/sounds/light_saber1.mp3'));
       await soundObject.playAsync();
       navigation.push("SoundScreen");
     } catch (error) {
