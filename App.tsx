@@ -1,10 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-// import { useNavigation } from "@react-navigation/native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-
 import MainScreen from "./src/MainScreen";
 import SoundScreen from "./src/SoundScreen";
 

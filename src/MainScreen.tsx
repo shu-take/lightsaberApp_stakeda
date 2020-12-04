@@ -1,17 +1,11 @@
-import React, { useState, useEffect, Component } from "react";
+import React from "react";
 import {
   StyleSheet,
   Text,
-  View,
   Pressable,
   SafeAreaView,
 } from "react-native";
-
 import { StackNavigationProp } from "@react-navigation/stack";
-// import { useNavigation } from "@react-navigation/native";
-// import { NavigationContainer } from "@react-navigation/native";
-// import { createStackNavigator } from "@react-navigation/stack";
-
 import { Audio } from "expo-av";
 
 type MainScreenNavigationProp = StackNavigationProp<
@@ -25,16 +19,16 @@ type Props = {
 
 export default function MainScreen(props: Props) {
   const { navigation } = props;
-  const toSound = () => {
-    navigation.push("SoundScreen");
+  const toSoundScreen = () => {
+    navigation.navigate("SoundScreen");
   };
 
-  const goto = async () => {
+  const toSound = async () => {
     const soundObject = new Audio.Sound();
     try {
-      // await soundObject.loadAsync(require('./assets/sounds/light_saber1.mp3'));
+      await soundObject.loadAsync(require('../assets/sounds/light_saber1.mp3'));
       await soundObject.playAsync();
-      navigation.push("SoundScreen");
+      toSoundScreen();
     } catch (error) {
       console.log("error...");
     }
@@ -44,9 +38,7 @@ export default function MainScreen(props: Props) {
     <SafeAreaView style={styles.container}>
       <Pressable
         style={styles.button}
-        onPress={() => {
-          navigation.push("SoundScreen");
-        }}
+        onPress={() => {toSound()}}
       >
         <Text style={styles.buttonText}>ジェダイになる</Text>
       </Pressable>
